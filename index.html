@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Wumpus Logic Agent</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Wumpus Knowledge-Based Agent</h1>
+            <div class="controls">
+                <label>Rows: <input type="number" id="rows" value="4" min="2" max="10"></label>
+                <label>Cols: <input type="number" id="cols" value="4" min="2" max="10"></label>
+                <label class="checkbox-label" title="Reveal pits and wumpus before they are discovered"><input type="checkbox" id="god-mode"> God Mode</label>
+                <button id="btn-start" class="btn-primary">Generate</button>
+                <button id="btn-step" class="btn-secondary" disabled>Next Step</button>
+                <button id="btn-auto" class="btn-secondary" disabled>Auto Run</button>
+            </div>
+        </header>
+        
+        <main>
+            <div class="grid-container" id="grid-container">
+                <div style="color: var(--text-muted); text-align: center;">Click Generate to create the environment.</div>
+            </div>
+            
+            <aside class="dashboard">
+                <h2>Metrics Dashboard</h2>
+                <div class="metric-card">
+                    <h3>Current Location</h3>
+                    <p id="agent-location">-</p>
+                </div>
+                <div class="metric-card">
+                    <h3>Active Percepts</h3>
+                    <p id="agent-percepts" class="percepts">-</p>
+                </div>
+                <div class="metric-card">
+                    <h3>Inference Steps</h3>
+                    <p id="inference-steps" class="highlight-number">0</p>
+                </div>
+                <div class="metric-card">
+                    <h3>Agent Status</h3>
+                    <p id="agent-status">Awaiting start...</p>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <script src="logic.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
